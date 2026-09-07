@@ -2,6 +2,9 @@ name: Update concert calendar
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/update-concerts.yml"
 
 permissions:
   contents: write
@@ -28,17 +31,23 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Prepare hashed PWA assets
+        run: python scripts/prepare_pwa.py
+
+      - name: Update Hangzhou Theatre source
+        run: python scripts/fix_hangzhou_source.py
+
       - name: Scrape concert data
         run: python scripts/scrape.py
 
-      - name: Commit updated data
+      - name: Commit generated files and concert data
         run: |
-          if git diff --quiet -- data/concerts.json; then
-            echo "No concert data changes."
+          if git diff --quiet; then
+            echo "No changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/concerts.json
-          git commit -m "chore: update concert data"
+          git add -A
+          git commit -m "chore: build PWA assets and update concert data"
           git push
