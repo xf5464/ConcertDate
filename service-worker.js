@@ -1,7 +1,5 @@
-const CACHE = 'concertdate-pwa-app-v1.1.2';
+const CACHE = 'concertdate-pwa-app-v1.1.3';
 const STATIC_FILES = [
-  './',
-  './index.html',
   './manifest.webmanifest',
   './assets/data-version-loader-9b3e6f21.js',
   './assets/app-7f2c1b90.js',
@@ -38,6 +36,20 @@ self.addEventListener('fetch', event => {
 
   if (url.pathname.endsWith('/data/concerts.json')) {
     event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
+    return;
+  }
+
+  const isPageNavigation = event.request.mode === 'navigate' || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/ConcertDate/');
+  if (isPageNavigation) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' })
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put('./index.html', copy));
+          return response;
+        })
+        .catch(async () => (await caches.match('./index.html')) || caches.match('./'))
+    );
     return;
   }
 
