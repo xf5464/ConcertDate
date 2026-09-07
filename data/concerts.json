@@ -1,12 +1,16 @@
 {
-  "version": "2d23137fa8de",
-  "updatedAt": "2026-09-07T11:07:50+00:00",
+  "version": "c143361c3c6a",
+  "updatedAt": "2026-09-07T12:29:56+00:00",
   "cities": [
     {
       "name": "杭州",
       "theaters": [
         "杭州大剧院",
-        "杭州剧院"
+        "杭州剧院",
+        "浙江音乐厅",
+        "杭州运河大剧院",
+        "临平大剧院",
+        "杭州金沙湖大剧院"
       ]
     },
     {
@@ -32,10 +36,31 @@
       "title": "上海交响乐团音乐会"
     },
     {
+      "date": "2026-09-06",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "五年和声奏响青春——杭州青年艺术家交响管乐团成立五周年音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
+      "date": "2026-09-07",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "致敬经典-80/90怀旧金曲主题音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
       "date": "2026-09-10",
       "city": "北京",
       "theater": "国家大剧院",
       "title": "国家大剧院交响音乐会"
+    },
+    {
+      "date": "2026-09-11",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "行走世界的波西米亚·德国新四重奏乐团融合爵士音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
     },
     {
       "date": "2026-09-13",
@@ -55,6 +80,20 @@
       "theater": "杭州大剧院",
       "title": "杭州大剧院管风琴系列VOL.62“从巴赫到新世界：管风琴的交响幻想”马丁·施梅丁独奏音乐会",
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+    },
+    {
+      "date": "2026-09-26",
+      "city": "杭州",
+      "theater": "杭州运河大剧院",
+      "title": "浙江交响乐团2026年青年演奏家系列（二）",
+      "source": "https://www.zjso.org/yugao/"
+    },
+    {
+      "date": "2026-09-26",
+      "city": "杭州",
+      "theater": "杭州运河大剧院",
+      "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
+      "source": "https://www.zjso.org/yugao/"
     },
     {
       "date": "2026-10-10",
@@ -84,10 +123,31 @@
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
     },
     {
+      "date": "2026-10-18",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "秋山望云叙夕阳——浙音民族室内乐团重阳专场音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
+      "date": "2026-10-23",
+      "city": "杭州",
+      "theater": "杭州运河大剧院",
+      "title": "浙江交响乐团2026年音乐季 (总第216期)英雄的诗篇",
+      "source": "https://www.zjso.org/yugao/"
+    },
+    {
       "date": "2026-10-24",
       "city": "北京",
       "theater": "国家大剧院",
       "title": "交响季音乐会"
+    },
+    {
+      "date": "2026-10-24",
+      "city": "杭州",
+      "theater": "临平大剧院",
+      "title": "《灵笼》动画视听音乐会",
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh"
     },
     {
       "date": "2026-10-24",
@@ -99,9 +159,30 @@
     {
       "date": "2026-10-25",
       "city": "杭州",
+      "theater": "临平大剧院",
+      "title": "《岁月鎏金•一生所爱》香港影视辉煌三十年经典金曲音乐会",
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh"
+    },
+    {
+      "date": "2026-10-25",
+      "city": "杭州",
       "theater": "杭州大剧院",
       "title": "加拿大瑞林钢琴三重奏音乐会",
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+    },
+    {
+      "date": "2026-11-07",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "[杭州] 《LALALAND爱乐之城》浪漫经典流行名曲主题音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
+      "date": "2026-11-07",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "[杭州] 《四月是你的谎言》钢琴小提琴唯美经典音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
     },
     {
       "date": "2026-11-08",
@@ -111,11 +192,25 @@
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
     },
     {
+      "date": "2026-11-13",
+      "city": "杭州",
+      "theater": "杭州运河大剧院",
+      "title": "浙江交响乐团2026年音乐季 (总第217期)命运对话",
+      "source": "https://www.zjso.org/yugao/"
+    },
+    {
       "date": "2026-11-14",
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "叙事者·孙榆桐一一贝多芬晚期钢琴奏鸣曲钢琴独奏音乐会",
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+    },
+    {
+      "date": "2026-11-14",
+      "city": "杭州",
+      "theater": "杭州金沙湖大剧院",
+      "title": "你可能不知道他的名字 但你一定听过他的歌 “Pianoboy”钢琴诗人高至豪 《复刻回忆》年初爆火 单个视频播放量突破2000万 成名作《The truth that you leave》 20年来悄然流淌过50亿次 坐拥网易云音乐60万+深情评论 11月14日来#金沙湖大剧院# 现场听这些动人旋律 #杭州金沙湖大剧院##钢琴诗人高至豪# ​",
+      "source": "https://www.sina.cn/media/7749068680"
     },
     {
       "date": "2026-11-21",
@@ -129,6 +224,34 @@
       "theater": "杭州大剧院",
       "title": "1+1≥2 X PianoLab斯拉夫回响—杭州钢琴三重奏音乐会",
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+    },
+    {
+      "date": "2026-12-05",
+      "city": "杭州",
+      "theater": "临平大剧院",
+      "title": "《四大名著》中西新交响 经典传承名曲音乐会",
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh"
+    },
+    {
+      "date": "2026-12-11",
+      "city": "杭州",
+      "theater": "杭州运河大剧院",
+      "title": "浙江交响乐团2026年音乐季 (总第218期)伟大的友谊",
+      "source": "https://www.zjso.org/yugao/"
+    },
+    {
+      "date": "2026-12-21",
+      "city": "杭州",
+      "theater": "杭州金沙湖大剧院",
+      "title": "12月21日 一场颠覆你听觉经验的竖琴风暴，即将到来 让我们一起见证90后天才艺术家 如何打破乐器的边界 一个人的竖琴，从古典到摇滚 迸发出整个乐队的能量！ #金沙湖大剧院##杭州金沙湖大剧院##竖琴##亚历山大波达切夫##竖琴音乐会# http://t.cn/AXLgCEhN ​",
+      "source": "https://www.sina.cn/media/7749068680"
+    },
+    {
+      "date": "2026-12-21",
+      "city": "杭州",
+      "theater": "杭州金沙湖大剧院",
+      "title": "一场颠覆想象的竖琴风暴 岁末席卷杭州！ 瑞士籍“竖琴革命家” 亚历山大·波达切夫（Alexander Boldachev） 12月21日奏响江南诗画之城！ #金沙湖大剧院##杭州金沙湖大剧院##竖琴##竖琴音乐会##亚历山大波达切夫# http://t.cn/AXLbsCod ​",
+      "source": "https://www.sina.cn/media/7749068680"
     },
     {
       "date": "2026-12-22",
@@ -152,6 +275,20 @@
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
     },
     {
+      "date": "2026-12-28",
+      "city": "杭州",
+      "theater": "杭州金沙湖大剧院",
+      "title": "Chaos Mercury草西水星女团 以阿卡贝拉重新演绎 火星哥格莱美金曲 《That's What I like》 12月28日，来金沙湖大剧院 现场感受人声的魅力 #金沙湖大剧院##杭州金沙湖大剧院##阿卡贝拉##草西水星女团##chaosmercury##阿卡贝拉音乐会# http://t.cn/AXLMfbjO ​",
+      "source": "https://www.sina.cn/media/7749068680"
+    },
+    {
+      "date": "2027-01-13",
+      "city": "杭州",
+      "theater": "杭州金沙湖大剧院",
+      "title": "JOJ和他的朋友们音乐会·杭州站 开演倒计时4️⃣天 不要错过1月13日的见面会💌 更不要错过1月15日的演出✅ 我们#金沙湖大剧院# 见 #杭州金沙湖大剧院##JOJ和他的朋友们##熊叔JOJ##johnowenjones# http://t.cn/AXbgGllg ​",
+      "source": "https://www.sina.cn/media/7749068680"
+    },
+    {
       "date": "2027-02-08",
       "city": "杭州",
       "theater": "杭州大剧院",
@@ -164,6 +301,55 @@
       "theater": "杭州大剧院",
       "title": "新春欢乐送·艺起过大年 “乐响新春”杭州爱乐乐团普及音乐会",
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+    },
+    {
+      "date": "2027-02-28",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "2026浙江青少年乐团新春音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
+      "date": "2027-03-01",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "浙江演艺集团2026新年演出季——《春风引》2026元宵音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
+      "date": "2027-03-08",
+      "city": "杭州",
+      "theater": "杭州金沙湖大剧院",
+      "title": "3岁开始学习弹钢琴 5岁便入围俄罗斯电视台“蓝鸟”比赛决赛 8岁就与钢琴大师马祖耶夫一起 参加莫斯科世界杯足球赛开幕演出 俄罗斯“小莫扎特”以利沙·迈辛 3月8日将来到杭州 一起感受他的指尖魔法吧！ #金沙湖大剧院##杭州金沙湖大剧院##以利沙迈辛##俄罗斯小莫扎特##音乐会##钢琴# ​",
+      "source": "https://www.sina.cn/media/7749068680"
+    },
+    {
+      "date": "2027-03-08",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "女神节《LALALAND爱乐之城》六重奏浪漫主题音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
+      "date": "2027-03-08",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "致敬经典《许仙和白娘子》经典曲目主题音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
+      "date": "2027-03-14",
+      "city": "杭州",
+      "theater": "临平大剧院",
+      "title": "玛丽亚·安德烈耶娃小提琴钢琴音乐会",
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh"
+    },
+    {
+      "date": "2027-03-15",
+      "city": "杭州",
+      "theater": "杭州金沙湖大剧院",
+      "title": "当火遍全网的音雄联盟合唱团 唱起青春回忆神曲《当》 温暖又治愈的歌声 抚平心灵的疲惫 带来希望的光芒 3月15日 #金沙湖大剧院# 愿用一场音乐会的时间 为每一位到场的听众 铸造一段短暂却永恒的记忆 #杭州金沙湖大剧院##音雄联盟合唱团##无名的人音乐会##合唱音乐会##当# http://t.cn/AXqoYjnx ​",
+      "source": "https://www.sina.cn/media/7749068680"
     },
     {
       "date": "2027-03-21",
@@ -194,6 +380,13 @@
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
     },
     {
+      "date": "2027-04-11",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "《国乐长歌·声声不息》民族管弦交响音乐会——浙江民族乐团",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
       "date": "2027-04-17",
       "city": "杭州",
       "theater": "杭州大剧院",
@@ -206,6 +399,13 @@
       "theater": "杭州大剧院",
       "title": "2026杭州“春之声”音乐汇 杭州爱乐乐团2025-2026音乐季 【对话】周天|瓦格纳：声贯东西",
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+    },
+    {
+      "date": "2027-04-18",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "《G弦上的咏叹调》古典名曲主题音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
     },
     {
       "date": "2027-04-19",
@@ -227,6 +427,27 @@
       "theater": "杭州大剧院",
       "title": "2026杭州“春之声”音乐汇闭幕音乐会 杭州爱乐乐团【大师】杨洋×卡瓦科斯：斯拉夫琴诗",
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+    },
+    {
+      "date": "2027-04-26",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "「低音的旅行诗」朱璐专场音乐会",
+      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+    },
+    {
+      "date": "2027-04-27",
+      "city": "杭州",
+      "theater": "杭州金沙湖大剧院",
+      "title": "🚶杭州的街角到底藏着什么秘密？ ✅老航班杭州City Walk独家预告抢先看 🎥 完整vlog也即将上线 4月27日 洛朗·班2025原声启航音乐会 We are waiting for you at 金沙湖大剧院 #金沙湖大剧院##老航班音乐会# http://t.cn/A6dt8JoV ​",
+      "source": "https://www.sina.cn/media/7749068680"
+    },
+    {
+      "date": "2027-04-30",
+      "city": "杭州",
+      "theater": "临平大剧院",
+      "title": "德国奥芬巴赫国会大厦交响乐团音乐会",
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh"
     }
   ],
   "sources": [
@@ -239,6 +460,26 @@
       "source": "杭州剧院",
       "ok": true,
       "count": 0
+    },
+    {
+      "source": "浙江音乐厅",
+      "ok": true,
+      "count": 13
+    },
+    {
+      "source": "杭州运河大剧院",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "source": "临平大剧院",
+      "ok": true,
+      "count": 5
+    },
+    {
+      "source": "杭州金沙湖大剧院",
+      "ok": true,
+      "count": 8
     }
   ]
 }
