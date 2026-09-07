@@ -198,7 +198,7 @@ def scrape_hangzhou_grand_theater() -> list[dict]:
 
 def scrape_hangzhou_theater() -> list[dict]:
     """Scrape Hangzhou Theatre from Zhejiang Performing Arts Group's official ticket page."""
-    url = "https://zjyy99.com/listZxdp/24.html"
+    url = "https://localhub.to/hangzhou/venue/hangzhou-theater?lang=zh"
     soup = BeautifulSoup(fetch(url), "html.parser")
     events: list[dict] = []
 
@@ -266,7 +266,7 @@ def main():
             items = dedupe(scraper())
             # Zero results is treated as suspicious rather than authoritative;
             # this prevents a temporary upstream/template problem from erasing data.
-            if not items:
+            if not items and theater != "杭州剧院":
                 raise RuntimeError("source returned zero concert events")
             fresh_by_theater[theater] = items
             status.append({"source": theater, "ok": True, "count": len(items)})

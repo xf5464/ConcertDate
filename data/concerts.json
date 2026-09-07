@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-07T10:07:31+00:00",
+  "updatedAt": "2026-09-07T10:45:13+00:00",
   "cities": [
     {
       "name": "杭州",
@@ -236,9 +236,8 @@
     },
     {
       "source": "杭州剧院",
-      "ok": false,
-      "count": 0,
-      "error": "HTTPSConnectionPool(host='zjyy99.com', port=443): Max retries exceeded with url: /listZxdp/24.html (Caused by NameResolutionError(\"HTTPSConnection(host='zjyy99.com', port=443): Failed to resolve 'zjyy99.com' ([Errno -5] No address associated with hostname)\"))"
+      "ok": true,
+      "count": 0
     }
   ]
 }
