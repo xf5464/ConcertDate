@@ -52,6 +52,32 @@ def normalize_title(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip(" -｜|·\n\t")
 
 
+def parse_start_time(text: str) -> str | None:
+    value = normalize_title(text)
+    # Prefer explicit HH:MM. Avoid treating years/dates as times.
+    match = re.search(r"(?<!\d)([01]?\d|2[0-3])[:：]([0-5]\d)(?!\d)", value)
+    if not match:
+        return None
+    return f"{int(match.group(1)):02d}:{match.group(2)}"
+
+
+def parse_duration(text: str) -> tuple[int | None, str | None]:
+    value = normalize_title(text)
+    # Only keep duration when the source explicitly states it. Never infer.
+    patterns = [
+        r"(?:演出时长|演出时间|时长|全长|约)[:：\s]*约?\s*(\d{2,3})\s*分钟",
+        r"约\s*(\d{2,3})\s*分钟",
+        r"(\d{2,3})\s*分钟(?:左右|约)?",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, value)
+        if match:
+            minutes = int(match.group(1))
+            if 20 <= minutes <= 360:
+                return minutes, f"约{minutes}分钟" if "约" in match.group(0) else f"{minutes}分钟"
+    return None, None
+
+
 def is_concert(text: str) -> bool:
     value = normalize_title(text).lower()
     if any(k.lower() in value for k in NON_CONCERT_KEYWORDS):
@@ -59,14 +85,24 @@ def is_concert(text: str) -> bool:
     return any(k.lower() in value for k in CONCERT_KEYWORDS)
 
 
-def make_event(date_str: str, city: str, theater: str, title: str, source: str):
-    return {
+def make_event(date_str: str, city: str, theater: str, title: str, source: str, raw_text: str = "", start_time: str | None = None):
+    event = {
         "date": date_str,
         "city": city,
         "theater": theater,
         "title": normalize_title(title),
         "source": source,
     }
+    source_text = raw_text or title
+    parsed_time = start_time or parse_start_time(source_text)
+    if parsed_time:
+        event["startTime"] = parsed_time
+    duration_minutes, duration_text = parse_duration(source_text)
+    if duration_minutes is not None:
+        event["durationMinutes"] = duration_minutes
+    if duration_text:
+        event["durationText"] = duration_text
+    return event
 
 
 def valid_future_or_recent(date_str: str) -> bool:
@@ -184,7 +220,7 @@ def scrape_localhub_venue(theater: str, url: str, aliases: tuple[str, ...] = ())
             continue
         for date_str in parse_date_strings(text):
             if valid_future_or_recent(date_str):
-                events.append(make_event(date_str, "杭州", theater, title, url))
+                events.append(make_event(date_str, "杭州", theater, title, url, raw_text=text))
 
     if not events:
         for node in soup.find_all("a"):
@@ -200,7 +236,7 @@ def scrape_localhub_venue(theater: str, url: str, aliases: tuple[str, ...] = ())
                 if dates and any(token in text for token in venue_tokens):
                     for date_str in dates:
                         if valid_future_or_recent(date_str):
-                            events.append(make_event(date_str, "杭州", theater, title, url))
+                            events.append(make_event(date_str, "杭州", theater, title, url, raw_text=text))
                     break
                 parent = parent.parent
 
@@ -265,7 +301,7 @@ def scrape_zhejiang_official_venue(theater: str) -> list[dict]:
 
             for date_str in dates:
                 if valid_future_or_recent(date_str):
-                    events.append(make_event(date_str, "杭州", theater, title, source))
+                    events.append(make_event(date_str, "杭州", theater, title, source, raw_text=raw))
     except Exception as exc:
         print(f"[warn] zjyy99 official source for {theater}: {exc}")
 
@@ -314,7 +350,7 @@ def scrape_zhejiang_official_venue(theater: str) -> list[dict]:
             source = orchestra_url
             if title_link and title_link.get("href"):
                 source = urljoin(orchestra_url, title_link.get("href"))
-            events.append(make_event(date_str, "杭州", theater, title, source))
+            events.append(make_event(date_str, "杭州", theater, title, source, raw_text=raw))
     except Exception as exc:
         print(f"[warn] zjso official source for {theater}: {exc}")
 
@@ -371,7 +407,7 @@ def scrape_jinsha_lake_grand_theater() -> list[dict]:
                     break
             for date_str in dates:
                 if valid_future_or_recent(date_str):
-                    events.append(make_event(date_str, "杭州", "杭州金沙湖大剧院", title[:240], social_url))
+                    events.append(make_event(date_str, "杭州", "杭州金沙湖大剧院", title[:240], social_url, raw_text=text))
     except Exception:
         pass
 
@@ -385,7 +421,7 @@ def scrape_jinsha_lake_grand_theater() -> list[dict]:
             title = normalize_title(title_node.get_text(" ", strip=True)) if title_node else "《四月是你的谎言》钢琴小提琴唯美经典音乐会"
             for date_str in parse_date_strings(text):
                 if valid_future_or_recent(date_str):
-                    events.append(make_event(date_str, "杭州", "杭州金沙湖大剧院", title, fallback_url))
+                    events.append(make_event(date_str, "杭州", "杭州金沙湖大剧院", title, fallback_url, raw_text=text))
     except Exception:
         pass
 

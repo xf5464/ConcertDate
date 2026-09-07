@@ -1,6 +1,6 @@
 {
-  "version": "6ba38b3ffd8d",
-  "updatedAt": "2026-09-07T14:41:29+00:00",
+  "version": "af12679d6dec",
+  "updatedAt": "2026-09-07T14:53:18+00:00",
   "cities": [
     {
       "name": "杭州",
@@ -72,7 +72,8 @@
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "杭州大剧院管风琴系列VOL.62“从巴赫到新世界：管风琴的交响幻想”马丁·施梅丁独奏音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-09-26",
@@ -93,7 +94,8 @@
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "1+1≥2 X PianoLab 刘倩芸钢琴独奏音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-10-11",
@@ -106,14 +108,16 @@
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "1+1≥2 礼赞中国一翟星星中国风格单簧管名曲音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-10-17",
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "1+1≥2浩洋室内乐 理性的狂欢 勃拉姆斯钢琴三重奏作品音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-10-23",
@@ -140,35 +144,40 @@
       "city": "杭州",
       "theater": "临平大剧院",
       "title": "《灵笼》动画视听音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-10-24",
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "1+1≥2东方狂想—江帆钢琴独奏音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-10-25",
       "city": "杭州",
       "theater": "临平大剧院",
       "title": "《岁月鎏金•一生所爱》香港影视辉煌三十年经典金曲音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh",
+      "startTime": "15:30"
     },
     {
       "date": "2026-10-25",
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "加拿大瑞林钢琴三重奏音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-11-08",
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "1+1≥2 弦象无穷——央央古筝独奏音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-11-13",
@@ -189,7 +198,8 @@
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "叙事者·孙榆桐一一贝多芬晚期钢琴奏鸣曲钢琴独奏音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-11-14",
@@ -223,14 +233,16 @@
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "1+1≥2 X PianoLab斯拉夫回响—杭州钢琴三重奏音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-12-05",
       "city": "杭州",
       "theater": "临平大剧院",
       "title": "《四大名著》中西新交响 经典传承名曲音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-12-11",
@@ -265,21 +277,24 @@
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "【6折早鸟票】维也纳皇家交响乐团2027新年音乐会一杭州站",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-12-25",
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "杭州大剧院管风琴系列VOL.65 知识音乐会 《音乐与天文学——宇宙的和谐》",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-12-28",
       "city": "杭州",
       "theater": "杭州大剧院",
       "title": "维也纳圆舞曲乐团新年音乐会",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-12-28",
