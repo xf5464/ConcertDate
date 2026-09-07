@@ -231,7 +231,7 @@ def scrape_zhejiang_official_venue(theater: str) -> list[dict]:
     events: list[dict] = []
 
     # Official ticket platform operated by Zhejiang Performing Arts Group.
-    ticket_url = "https://www.zjyy99.com/listZxdp/24.html"
+    ticket_url = "https://localhub.to/hangzhou/venue/hangzhou-theater?lang=zh"
     try:
         soup = BeautifulSoup(fetch(ticket_url), "html.parser")
         for block in soup.find_all(["li", "article", "tr", "div"]):
@@ -274,10 +274,11 @@ def scrape_zhejiang_official_venue(theater: str) -> list[dict]:
         soup = BeautifulSoup(fetch(orchestra_url), "html.parser")
         for time_node in soup.find_all("time", attrs={"datetime": True}):
             raw_dt = str(time_node.get("datetime") or "")
-            m = re.search(r"(20\\d{2}-\\d{2}-\\d{2})", raw_dt)
-            if not m:
+            date_str = raw_dt[:10]
+            try:
+                datetime.strptime(date_str, "%Y-%m-%d")
+            except ValueError:
                 continue
-            date_str = m.group(1)
             if not valid_future_or_recent(date_str):
                 continue
 

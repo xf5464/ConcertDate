@@ -1,6 +1,6 @@
 {
-  "version": "7c1ded66a91a",
-  "updatedAt": "2026-09-07T14:31:56+00:00",
+  "version": "22e0474c0cb4",
+  "updatedAt": "2026-09-07T14:33:16+00:00",
   "cities": [
     {
       "name": "杭州",
@@ -36,31 +36,24 @@
       "title": "上海交响乐团音乐会"
     },
     {
-      "date": "2026-09-06",
+      "date": "2026-09-07",
       "city": "杭州",
-      "theater": "浙江音乐厅",
-      "title": "五年和声奏响青春——杭州青年艺术家交响管乐团成立五周年音乐会",
-      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+      "theater": "杭州运河大剧院",
+      "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
     },
     {
       "date": "2026-09-07",
       "city": "杭州",
       "theater": "浙江音乐厅",
-      "title": "致敬经典-80/90怀旧金曲主题音乐会",
-      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
+      "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
     },
     {
       "date": "2026-09-10",
       "city": "北京",
       "theater": "国家大剧院",
       "title": "国家大剧院交响音乐会"
-    },
-    {
-      "date": "2026-09-11",
-      "city": "杭州",
-      "theater": "浙江音乐厅",
-      "title": "行走世界的波西米亚·德国新四重奏乐团融合爵士音乐会",
-      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
     },
     {
       "date": "2026-09-13",
@@ -85,15 +78,15 @@
       "date": "2026-09-26",
       "city": "杭州",
       "theater": "杭州运河大剧院",
-      "title": "浙江交响乐团2026年青年演奏家系列（二）",
-      "source": "https://www.zjso.org/yugao/"
+      "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
     },
     {
       "date": "2026-09-26",
       "city": "杭州",
-      "theater": "杭州运河大剧院",
+      "theater": "浙江音乐厅",
       "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
-      "source": "https://www.zjso.org/yugao/"
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
     },
     {
       "date": "2026-10-10",
@@ -123,18 +116,18 @@
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
     },
     {
-      "date": "2026-10-18",
-      "city": "杭州",
-      "theater": "浙江音乐厅",
-      "title": "秋山望云叙夕阳——浙音民族室内乐团重阳专场音乐会",
-      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
-    },
-    {
       "date": "2026-10-23",
       "city": "杭州",
       "theater": "杭州运河大剧院",
       "title": "浙江交响乐团2026年音乐季 (总第216期)英雄的诗篇",
-      "source": "https://www.zjso.org/yugao/"
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac216%e6%9c%9f%e8%8b%b1%e9%9b%84%e7%9a%84%e8%af%97%e7%af%87/"
+    },
+    {
+      "date": "2026-10-23",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
     },
     {
       "date": "2026-10-24",
@@ -171,20 +164,6 @@
       "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
     },
     {
-      "date": "2026-11-07",
-      "city": "杭州",
-      "theater": "浙江音乐厅",
-      "title": "[杭州] 《LALALAND爱乐之城》浪漫经典流行名曲主题音乐会",
-      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
-    },
-    {
-      "date": "2026-11-07",
-      "city": "杭州",
-      "theater": "浙江音乐厅",
-      "title": "[杭州] 《四月是你的谎言》钢琴小提琴唯美经典音乐会",
-      "source": "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh"
-    },
-    {
       "date": "2026-11-08",
       "city": "杭州",
       "theater": "杭州大剧院",
@@ -196,7 +175,14 @@
       "city": "杭州",
       "theater": "杭州运河大剧院",
       "title": "浙江交响乐团2026年音乐季 (总第217期)命运对话",
-      "source": "https://www.zjso.org/yugao/"
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac217%e6%9c%9f%e5%91%bd%e8%bf%90%e5%af%b9%e8%af%9d/"
+    },
+    {
+      "date": "2026-11-13",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
     },
     {
       "date": "2026-11-14",
@@ -211,6 +197,20 @@
       "theater": "杭州金沙湖大剧院",
       "title": "你可能不知道他的名字 但你一定听过他的歌 “Pianoboy”钢琴诗人高至豪 《复刻回忆》年初爆火 单个视频播放量突破2000万 成名作《The truth that you leave》 20年来悄然流淌过50亿次 坐拥网易云音乐60万+深情评论 11月14日来#金沙湖大剧院# 现场听这些动人旋律 #杭州金沙湖大剧院##钢琴诗人高至豪# ​",
       "source": "https://www.sina.cn/media/7749068680"
+    },
+    {
+      "date": "2026-11-20",
+      "city": "杭州",
+      "theater": "杭州运河大剧院",
+      "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
+    },
+    {
+      "date": "2026-11-20",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "浙江交响乐团2026年青年演奏家系列（二）",
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9d%92%e5%b9%b4%e6%bc%94%e5%a5%8f%e5%ae%b6%e7%b3%bb%e5%88%97%ef%bc%88%e4%ba%8c%ef%bc%89/"
     },
     {
       "date": "2026-11-21",
@@ -237,7 +237,14 @@
       "city": "杭州",
       "theater": "杭州运河大剧院",
       "title": "浙江交响乐团2026年音乐季 (总第218期)伟大的友谊",
-      "source": "https://www.zjso.org/yugao/"
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac218%e6%9c%9f%e4%bc%9f%e5%a4%a7%e7%9a%84%e5%8f%8b%e8%b0%8a/"
+    },
+    {
+      "date": "2026-12-11",
+      "city": "杭州",
+      "theater": "浙江音乐厅",
+      "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
+      "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
     },
     {
       "date": "2026-12-21",
@@ -307,9 +314,8 @@
     },
     {
       "source": "杭州运河大剧院",
-      "ok": false,
-      "count": 0,
-      "error": "official sources returned zero concert events"
+      "ok": true,
+      "count": 6
     },
     {
       "source": "临平大剧院",
