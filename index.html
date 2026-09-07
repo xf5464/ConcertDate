@@ -8,19 +8,19 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="ConcertDate" />
-  <meta name="application-version" content="1.0.0" />
   <title>ConcertDate</title>
   <link rel="manifest" href="./manifest.webmanifest" />
   <link rel="apple-touch-icon" sizes="192x192" href="./assets/apple-touch-icon-ba816ddb.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192-ba816ddb.png" />
   <link rel="stylesheet" href="./assets/styles-91563071.css" />
   <link rel="stylesheet" href="./assets/calendar-interactions-f3a7c2d1.css" />
+  <link rel="stylesheet" href="./assets/multi-filter-4a76d8c1.css" />
 </head>
 <body>
   <header class="topbar">
     <div>
       <h1>ConcertDate</h1>
-      <p>查看不同城市与剧院的音乐会日期 · App v1.0.0</p>
+      <p>查看不同城市与剧院的音乐会日期 · App v1.1.0</p>
     </div>
   </header>
 
@@ -31,10 +31,8 @@
       <div class="filter-field"><label for="yearSelect">年份</label><select id="yearSelect"></select></div>
       <div class="filter-field"><label for="monthSelect">月份</label><select id="monthSelect"></select></div>
       <div class="filter-field">
-        <label for="weekdaySelect">星期</label>
-        <select id="weekdaySelect">
-          <option value="all">全部</option><option value="1">周一</option><option value="2">周二</option><option value="3">周三</option><option value="4">周四</option><option value="5">周五</option><option value="6">周六</option><option value="0">周日</option>
-        </select>
+        <label>星期（可多选；不选=全部）</label>
+        <div id="weekdayGroup" class="weekday-group" role="group" aria-label="星期筛选"></div>
       </div>
       <div class="legend"><span><i class="dot concert-dot"></i>有音乐会</span></div>
     </aside>
@@ -44,15 +42,14 @@
         <div><strong id="summaryTitle">音乐会日历</strong><span id="summaryText"></span></div>
         <button id="todayButton" type="button">回到当前月</button>
       </div>
-      <div id="calendarScroller" class="calendar-scroller" tabindex="0" aria-label="全年日历"></div>
+      <div id="calendarScroller" class="calendar-scroller" tabindex="0" aria-label="连续月份日历"></div>
       <div id="emptyState" class="empty-state" hidden>当前筛选条件下没有音乐会。</div>
     </section>
   </main>
 
-  <script src="./assets/data-version-loader-35a57b9e.js" defer></script>
-  <script src="./assets/app-a14c9f11.js" defer></script>
-  <script src="./assets/filter-state-7b6e21c4.js" defer></script>
-  <script src="./assets/calendar-interactions-1fce7c87.js" defer></script>
+  <script src="./assets/data-version-loader-9b3e6f21.js" defer></script>
+  <script src="./assets/app-3d9c71a2.js" defer></script>
+  <script src="./assets/calendar-interactions-8c2fd1b4.js" defer></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
