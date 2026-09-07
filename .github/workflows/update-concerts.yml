@@ -31,23 +31,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Prepare hashed PWA assets
-        run: python scripts/prepare_pwa.py
-
       - name: Update Hangzhou Theatre source
         run: python scripts/fix_hangzhou_source.py
 
       - name: Scrape concert data
         run: python scripts/scrape.py
 
-      - name: Commit generated files and concert data
+      - name: Commit updated concert data
         run: |
-          if git diff --quiet; then
+          if git diff --quiet -- data/concerts.json scripts/scrape.py; then
             echo "No changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "chore: build PWA assets and update concert data"
+          git add data/concerts.json scripts/scrape.py
+          git commit -m "chore: update concert data"
           git push
