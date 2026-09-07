@@ -31,9 +31,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Assemble PWA icon source
-        run: python scripts/assemble_icon.py
-
       - name: Prepare hashed PWA assets
         run: python scripts/prepare_pwa.py
 
