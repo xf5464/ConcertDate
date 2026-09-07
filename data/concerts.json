@@ -1,4 +1,5 @@
 {
+  "updatedAt": "2026-09-07T17:32:00+08:00",
   "cities": [
     {
       "name": "杭州",
@@ -14,19 +15,33 @@
     }
   ],
   "concerts": [
-    {"date": "2026-09-05", "city": "杭州", "theater": "杭州大剧院", "title": "交响音乐会"},
-    {"date": "2026-09-12", "city": "杭州", "theater": "杭州大剧院", "title": "周末音乐会"},
-    {"date": "2026-09-19", "city": "杭州", "theater": "杭州剧院", "title": "室内乐之夜"},
-    {"date": "2026-10-03", "city": "杭州", "theater": "杭州大剧院", "title": "国庆音乐会"},
-    {"date": "2026-10-17", "city": "杭州", "theater": "杭州剧院", "title": "钢琴独奏会"},
-    {"date": "2026-11-07", "city": "杭州", "theater": "杭州大剧院", "title": "秋季交响音乐会"},
+    {
+      "date": "2026-09-25",
+      "city": "杭州",
+      "theater": "杭州大剧院",
+      "title": "杭州大剧院管风琴系列VOL.62“从巴赫到新世界：管风琴的交响幻想”马丁·施梅丁独奏音乐会",
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+    },
     {"date": "2026-09-06", "city": "上海", "theater": "上海交响音乐厅", "title": "上海交响乐团音乐会"},
     {"date": "2026-09-13", "city": "上海", "theater": "上海东方艺术中心", "title": "周日音乐会"},
     {"date": "2026-10-11", "city": "上海", "theater": "上海交响音乐厅", "title": "大师系列音乐会"},
     {"date": "2026-11-21", "city": "上海", "theater": "上海东方艺术中心", "title": "室内乐音乐会"},
     {"date": "2026-09-10", "city": "北京", "theater": "国家大剧院", "title": "国家大剧院交响音乐会"},
     {"date": "2026-09-18", "city": "北京", "theater": "北京音乐厅", "title": "经典名曲音乐会"},
-    {"date": "2026-10-24", "city": "北京", "theater": "国家大剧院", "title": "交响季音乐会"},
-    {"date": "2027-01-09", "city": "杭州", "theater": "杭州大剧院", "title": "新年音乐会"}
+    {"date": "2026-10-24", "city": "北京", "theater": "国家大剧院", "title": "交响季音乐会"}
+  ],
+  "sources": [
+    {
+      "source": "杭州大剧院",
+      "ok": true,
+      "count": 1,
+      "note": "initial verified seed; future runs refresh automatically"
+    },
+    {
+      "source": "杭州剧院",
+      "ok": true,
+      "count": 0,
+      "note": "no verified future classical-concert event seeded"
+    }
   ]
 }
