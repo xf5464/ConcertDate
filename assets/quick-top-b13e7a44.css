@@ -1,0 +1,69 @@
+.quick-top-scroll-runway {
+  width: 1px;
+  min-height: 0;
+  pointer-events: none;
+}
+
+.quick-top-button {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(22px, calc(env(safe-area-inset-bottom) + 14px));
+  z-index: 900;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(17, 24, 39, 0.16);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  color: #111827;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  cursor: pointer;
+  font-size: 25px;
+  line-height: 1;
+  opacity: 0.78;
+  transition: opacity 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.quick-top-button:active {
+  transform: scale(0.94);
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+body.quick-calendar-focus .calendar-panel {
+  height: 100dvh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.quick-calendar-focus .calendar-toolbar {
+  flex: 0 0 auto;
+}
+
+body.quick-calendar-focus .calendar-scroller {
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
+}
+
+@supports not (height: 100dvh) {
+  body.quick-calendar-focus .calendar-panel {
+    height: 100vh;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 520px) {
+  .quick-top-button {
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(18px, calc(env(safe-area-inset-bottom) + 10px));
+    width: 46px;
+    height: 46px;
+    font-size: 23px;
+  }
+}
