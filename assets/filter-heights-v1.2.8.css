@@ -1,0 +1,22 @@
+:root {
+  --filter-control-height: 48px;
+}
+
+/* Keep every filter control visually identical in height. */
+.filter-field select,
+.theater-dropdown-button,
+.weekday-dropdown-button {
+  height: var(--filter-control-height) !important;
+  min-height: var(--filter-control-height) !important;
+  max-height: var(--filter-control-height) !important;
+}
+
+.filter-field select {
+  line-height: normal;
+}
+
+.theater-dropdown-button,
+.weekday-dropdown-button {
+  padding-top: 0;
+  padding-bottom: 0;
+}
