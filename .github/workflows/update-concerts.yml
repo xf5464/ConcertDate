@@ -8,6 +8,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: update-concerts
@@ -15,6 +17,9 @@ concurrency:
 
 jobs:
   scrape:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -39,12 +44,24 @@ jobs:
 
       - name: Commit updated concert data
         run: |
-          if git diff --quiet -- data/concerts.json scripts/scrape.py; then
-            echo "No changes."
-            exit 0
+          if ! git diff --quiet -- data/concerts.json scripts/scrape.py; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/concerts.json scripts/scrape.py
+            git commit -m "chore: update concert data"
+            git push
+          else
+            echo "No repository changes."
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/concerts.json scripts/scrape.py
-          git commit -m "chore: update concert data"
-          git push
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload current site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy current site
+        id: deployment
+        uses: actions/deploy-pages@v4
