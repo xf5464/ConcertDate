@@ -2,10 +2,17 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="按城市、剧院、月份和星期筛选音乐会日期" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="ConcertDate" />
   <title>ConcertDate</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" sizes="192x192" href="./assets/apple-touch-icon-ba816ddb.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192-ba816ddb.png" />
+  <link rel="stylesheet" href="./assets/styles-91563071.css" />
 </head>
 <body>
   <header class="topbar">
@@ -17,60 +24,34 @@
 
   <main class="layout">
     <aside class="filters" aria-label="筛选条件">
-      <div class="filter-field">
-        <label for="citySelect">城市</label>
-        <select id="citySelect"></select>
-      </div>
-
-      <div class="filter-field">
-        <label for="theaterSelect">剧院</label>
-        <select id="theaterSelect"></select>
-      </div>
-
-      <div class="filter-field">
-        <label for="yearSelect">年份</label>
-        <select id="yearSelect"></select>
-      </div>
-
-      <div class="filter-field">
-        <label for="monthSelect">月份</label>
-        <select id="monthSelect"></select>
-      </div>
-
+      <div class="filter-field"><label for="citySelect">城市</label><select id="citySelect"></select></div>
+      <div class="filter-field"><label for="theaterSelect">剧院</label><select id="theaterSelect"></select></div>
+      <div class="filter-field"><label for="yearSelect">年份</label><select id="yearSelect"></select></div>
+      <div class="filter-field"><label for="monthSelect">月份</label><select id="monthSelect"></select></div>
       <div class="filter-field">
         <label for="weekdaySelect">星期</label>
         <select id="weekdaySelect">
-          <option value="all">全部</option>
-          <option value="1">周一</option>
-          <option value="2">周二</option>
-          <option value="3">周三</option>
-          <option value="4">周四</option>
-          <option value="5">周五</option>
-          <option value="6">周六</option>
-          <option value="0">周日</option>
+          <option value="all">全部</option><option value="1">周一</option><option value="2">周二</option><option value="3">周三</option><option value="4">周四</option><option value="5">周五</option><option value="6">周六</option><option value="0">周日</option>
         </select>
       </div>
-
-      <div class="legend">
-        <span><i class="dot concert-dot"></i>有音乐会</span>
-        <span><i class="dot no-concert-dot"></i>无音乐会</span>
-      </div>
+      <div class="legend"><span><i class="dot concert-dot"></i>有音乐会</span><span><i class="dot no-concert-dot"></i>无音乐会</span></div>
     </aside>
 
     <section class="calendar-panel">
       <div class="calendar-toolbar">
-        <div>
-          <strong id="summaryTitle">音乐会日历</strong>
-          <span id="summaryText"></span>
-        </div>
+        <div><strong id="summaryTitle">音乐会日历</strong><span id="summaryText"></span></div>
         <button id="todayButton" type="button">回到当前月</button>
       </div>
-
       <div id="calendarScroller" class="calendar-scroller" tabindex="0" aria-label="全年日历"></div>
       <div id="emptyState" class="empty-state" hidden>当前筛选条件下没有音乐会。</div>
     </section>
   </main>
 
-  <script src="./app.js" defer></script>
+  <script src="./assets/app-a14c9f11.js" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
+    }
+  </script>
 </body>
 </html>
