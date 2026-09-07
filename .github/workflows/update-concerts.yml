@@ -31,8 +31,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Assemble PWA icon source
+        run: |
+          cat assets-src/apple-touch-icon.b64 assets-src/icon-01.b64 assets-src/icon-02.b64 assets-src/icon-03.b64 assets-src/icon-04.b64 > assets-src/apple-touch-icon.full.b64
+          mv assets-src/apple-touch-icon.full.b64 assets-src/apple-touch-icon.b64
+
       - name: Prepare hashed PWA assets
-        run: python scripts/prepare_pwa.py
+        run: |
+          python scripts/prepare_pwa.py
+          rm -f assets-src/icon-*.b64
+          rmdir assets-src 2>/dev/null || true
 
       - name: Update Hangzhou Theatre source
         run: python scripts/fix_hangzhou_source.py
