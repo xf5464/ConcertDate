@@ -1,4 +1,4 @@
-const CACHE = 'concertdate-pwa-20260907-filter-state';
+const CACHE = 'concertdate-pwa-app-v1.0.0';
 const STATIC_FILES = [
   './',
   './index.html',
