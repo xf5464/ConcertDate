@@ -1,14 +1,14 @@
-const CACHE = 'concertdate-pwa-app-v1.0.0';
+const CACHE = 'concertdate-pwa-app-v1.1.0';
 const STATIC_FILES = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './assets/data-version-loader-35a57b9e.js',
-  './assets/app-a14c9f11.js',
-  './assets/filter-state-7b6e21c4.js',
+  './assets/data-version-loader-9b3e6f21.js',
+  './assets/app-3d9c71a2.js',
   './assets/styles-91563071.css',
-  './assets/calendar-interactions-1fce7c87.js',
+  './assets/calendar-interactions-8c2fd1b4.js',
   './assets/calendar-interactions-f3a7c2d1.css',
+  './assets/multi-filter-4a76d8c1.css',
   './assets/apple-touch-icon-ba816ddb.png',
   './assets/icon-192-ba816ddb.png'
 ];
