@@ -1,10 +1,11 @@
-const CACHE = 'concertdate-pwa-20260907-data-version';
+const CACHE = 'concertdate-pwa-20260907-filter-state';
 const STATIC_FILES = [
   './',
   './index.html',
   './manifest.webmanifest',
   './assets/data-version-loader-35a57b9e.js',
   './assets/app-a14c9f11.js',
+  './assets/filter-state-7b6e21c4.js',
   './assets/styles-91563071.css',
   './assets/calendar-interactions-1fce7c87.js',
   './assets/calendar-interactions-f3a7c2d1.css',
