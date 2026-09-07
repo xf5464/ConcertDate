@@ -17,6 +17,10 @@ TIMEOUT = 25
 VENUES = [
     {"city": "杭州", "theater": "杭州大剧院"},
     {"city": "杭州", "theater": "杭州剧院"},
+    {"city": "杭州", "theater": "浙江音乐厅"},
+    {"city": "杭州", "theater": "杭州运河大剧院"},
+    {"city": "杭州", "theater": "临平大剧院"},
+    {"city": "杭州", "theater": "杭州金沙湖大剧院"},
     {"city": "上海", "theater": "上海交响音乐厅"},
     {"city": "上海", "theater": "上海东方艺术中心"},
     {"city": "北京", "theater": "国家大剧院"},
@@ -74,17 +78,14 @@ def valid_future_or_recent(date_str: str) -> bool:
 
 def infer_year(month: int) -> int:
     today = date.today()
-    # A month far behind the current month is assumed to belong to next year.
     if month < today.month - 4:
         return today.year + 1
     return today.year
 
 
 def parse_date_strings(text: str) -> list[str]:
-    """Parse common Chinese event date formats and expand explicit date ranges."""
     text = normalize_title(text)
 
-    # 2026/09/24 - 2026/09/27 (also accepts . and - separators)
     range_match = re.search(
         r"(20\d{2})[./-](\d{1,2})[./-](\d{1,2})\s*(?:-|—|–|至|~|～)\s*"
         r"(20\d{2})[./-](\d{1,2})[./-](\d{1,2})",
@@ -100,7 +101,6 @@ def parse_date_strings(text: str) -> list[str]:
             return []
         return [(start + timedelta(days=i)).isoformat() for i in range((end - start).days + 1)]
 
-    # 2026.09.25 / 2026-09-25 / 2026/09/25
     match = re.search(r"(20\d{2})[./-](\d{1,2})[./-](\d{1,2})", text)
     if match:
         try:
@@ -108,7 +108,6 @@ def parse_date_strings(text: str) -> list[str]:
         except ValueError:
             return []
 
-    # 2026年9月25日
     match = re.search(r"(20\d{2})年\s*(\d{1,2})月\s*(\d{1,2})日?", text)
     if match:
         try:
@@ -116,8 +115,7 @@ def parse_date_strings(text: str) -> list[str]:
         except ValueError:
             return []
 
-    # 9/25 周五 19:30 or 9月25日
-    match = re.search(r"(?<!\d)(\d{1,2})(?:/|月)(\d{1,2})(?:日)?(?!\d)", text)
+    match = re.search(r"(?<!\d)(\d{1,2})\s*(?:/|月)\s*(\d{1,2})(?:日)?(?!\d)", text)
     if match:
         month, day_num = int(match.group(1)), int(match.group(2))
         try:
@@ -140,94 +138,152 @@ def dedupe(events: Iterable[dict]) -> list[dict]:
     return result
 
 
-def scrape_hangzhou_grand_theater() -> list[dict]:
-    """Hangzhou Grand Theatre upcoming-event calendar.
-
-    The theatre's public website/index is not consistently crawlable, so this
-    scraper uses the server-rendered venue calendar as the current discovery
-    source. It only keeps concert-like events and records the source URL.
-    """
-    url = "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+def scrape_localhub_venue(theater: str, url: str, aliases: tuple[str, ...] = ()) -> list[dict]:
     soup = BeautifulSoup(fetch(url), "html.parser")
     events: list[dict] = []
+    venue_tokens = (theater,) + aliases
 
-    headings = soup.find_all(["h2", "h3", "h4", "h5"])
-    for heading in headings:
+    for heading in soup.find_all(["h2", "h3", "h4", "h5"]):
         title = normalize_title(heading.get_text(" ", strip=True))
         if not title or not is_concert(title):
             continue
 
-        # Event cards vary slightly over time. Read the heading's closest card-like
-        # parent, then fall back to nearby siblings if needed.
         context = heading
-        for _ in range(4):
+        for _ in range(5):
             if context.parent is None:
                 break
             context = context.parent
-            context_text = normalize_title(context.get_text(" ", strip=True))
-            if "杭州大剧院" in context_text and parse_date_strings(context_text):
+            text = normalize_title(context.get_text(" ", strip=True))
+            if parse_date_strings(text) and any(token in text for token in venue_tokens):
                 break
 
-        context_text = normalize_title(context.get_text(" ", strip=True))
-        dates = parse_date_strings(context_text)
-        for date_str in dates:
+        text = normalize_title(context.get_text(" ", strip=True))
+        if not any(token in text for token in venue_tokens):
+            continue
+        for date_str in parse_date_strings(text):
             if valid_future_or_recent(date_str):
-                events.append(make_event(date_str, "杭州", "杭州大剧院", title, url))
+                events.append(make_event(date_str, "杭州", theater, title, url))
 
-    # Defensive fallback for markup where event titles are links instead of headings.
     if not events:
         for node in soup.find_all("a"):
             title = normalize_title(node.get_text(" ", strip=True))
             if len(title) < 5 or not is_concert(title):
                 continue
             parent = node.parent
-            for _ in range(4):
+            for _ in range(5):
                 if parent is None:
                     break
                 text = normalize_title(parent.get_text(" ", strip=True))
                 dates = parse_date_strings(text)
-                if "杭州大剧院" in text and dates:
+                if dates and any(token in text for token in venue_tokens):
                     for date_str in dates:
                         if valid_future_or_recent(date_str):
-                            events.append(make_event(date_str, "杭州", "杭州大剧院", title, url))
+                            events.append(make_event(date_str, "杭州", theater, title, url))
                     break
                 parent = parent.parent
 
     return dedupe(events)
 
 
+def scrape_hangzhou_grand_theater() -> list[dict]:
+    return scrape_localhub_venue(
+        "杭州大剧院",
+        "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+    )
+
+
 def scrape_hangzhou_theater() -> list[dict]:
-    """Scrape Hangzhou Theatre from Zhejiang Performing Arts Group's official ticket page."""
-    url = "https://localhub.to/hangzhou/venue/hangzhou-theater?lang=zh"
+    return scrape_localhub_venue(
+        "杭州剧院",
+        "https://localhub.to/hangzhou/venue/hangzhou-theater?lang=zh",
+    )
+
+
+def scrape_zhejiang_music_hall() -> list[dict]:
+    return scrape_localhub_venue(
+        "浙江音乐厅",
+        "https://localhub.to/hangzhou/venue/zhejiang-music-hall/?lang=zh",
+    )
+
+
+def scrape_linping_grand_theater() -> list[dict]:
+    return scrape_localhub_venue(
+        "临平大剧院",
+        "https://localhub.to/hangzhou/venue/hangzhou-linping-theater?lang=zh",
+        aliases=("Hangzhou Linping Theater", "杭州临平大剧院"),
+    )
+
+
+def scrape_hangzhou_canal_grand_theater() -> list[dict]:
+    url = "https://www.zjso.org/yugao/"
     soup = BeautifulSoup(fetch(url), "html.parser")
     events: list[dict] = []
 
-    # Event cards contain title, venue and date together. We intentionally scan
-    # several semantic/container elements because the site has changed templates.
-    for block in soup.find_all(["li", "div", "article", "tr"]):
-        text = normalize_title(block.get_text(" ", strip=True))
-        if "杭州剧院" not in text or not is_concert(text):
-            continue
-        dates = parse_date_strings(text)
-        if not dates:
-            continue
-
-        title = ""
-        for node in block.find_all(["a", "h1", "h2", "h3", "h4"], limit=8):
-            candidate = normalize_title(node.get_text(" ", strip=True))
-            if candidate and candidate != "杭州剧院" and is_concert(candidate):
-                title = candidate
-                break
-
-        if not title:
-            # Trim everything from venue/date metadata onward.
-            title = text.split("杭州剧院", 1)[0].strip()
+    for heading in soup.find_all(["h2", "h3", "h4"]):
+        title = normalize_title(heading.get_text(" ", strip=True))
         if not title or not is_concert(title):
             continue
 
-        for date_str in dates:
+        context = heading
+        for _ in range(6):
+            if context.parent is None:
+                break
+            context = context.parent
+            text = normalize_title(context.get_text(" ", strip=True))
+            if "杭州运河大剧院" in text and parse_date_strings(text):
+                break
+
+        text = normalize_title(context.get_text(" ", strip=True))
+        if "杭州运河大剧院" not in text:
+            continue
+        for date_str in parse_date_strings(text):
             if valid_future_or_recent(date_str):
-                events.append(make_event(date_str, "杭州", "杭州剧院", title, url))
+                events.append(make_event(date_str, "杭州", "杭州运河大剧院", title, url))
+
+    return dedupe(events)
+
+
+def scrape_jinsha_lake_grand_theater() -> list[dict]:
+    events: list[dict] = []
+
+    # Official theater social-media feed is used for discovery when server-rendered.
+    social_url = "https://www.sina.cn/media/7749068680"
+    try:
+        soup = BeautifulSoup(fetch(social_url), "html.parser")
+        for block in soup.find_all(["article", "li", "p", "div"]):
+            text = normalize_title(block.get_text(" ", strip=True))
+            if not (20 <= len(text) <= 700):
+                continue
+            if "金沙湖大剧院" not in text or not is_concert(text):
+                continue
+            dates = parse_date_strings(text)
+            if not dates:
+                continue
+            title = text
+            for node in block.find_all(["a", "h2", "h3", "h4"], limit=6):
+                candidate = normalize_title(node.get_text(" ", strip=True))
+                if candidate and is_concert(candidate):
+                    title = candidate
+                    break
+            for date_str in dates:
+                if valid_future_or_recent(date_str):
+                    events.append(make_event(date_str, "杭州", "杭州金沙湖大剧院", title[:240], social_url))
+    except Exception:
+        pass
+
+    # A current public ticket listing provides a structured fallback concert entry.
+    fallback_url = "https://huodong.com/event/detail/eykzg"
+    try:
+        soup = BeautifulSoup(fetch(fallback_url), "html.parser")
+        text = normalize_title(soup.get_text(" ", strip=True))
+        if "金沙湖大剧院" in text and is_concert(text):
+            title_node = soup.find("h1")
+            title = normalize_title(title_node.get_text(" ", strip=True)) if title_node else "《四月是你的谎言》钢琴小提琴唯美经典音乐会"
+            for date_str in parse_date_strings(text):
+                if valid_future_or_recent(date_str):
+                    events.append(make_event(date_str, "杭州", "杭州金沙湖大剧院", title, fallback_url))
+    except Exception:
+        pass
 
     return dedupe(events)
 
@@ -249,11 +305,13 @@ def load_previous() -> dict:
 
 
 def main():
-    # Only Hangzhou is enabled for production scraping for now. Other cities stay
-    # in the UI list and can be activated after their sources are verified.
     scrapers = [
         ("杭州大剧院", scrape_hangzhou_grand_theater),
         ("杭州剧院", scrape_hangzhou_theater),
+        ("浙江音乐厅", scrape_zhejiang_music_hall),
+        ("杭州运河大剧院", scrape_hangzhou_canal_grand_theater),
+        ("临平大剧院", scrape_linping_grand_theater),
+        ("杭州金沙湖大剧院", scrape_jinsha_lake_grand_theater),
     ]
 
     previous = load_previous()
@@ -264,8 +322,6 @@ def main():
     for theater, scraper in scrapers:
         try:
             items = dedupe(scraper())
-            # Zero results is treated as suspicious rather than authoritative;
-            # this prevents a temporary upstream/template problem from erasing data.
             if not items and theater != "杭州剧院":
                 raise RuntimeError("source returned zero concert events")
             fresh_by_theater[theater] = items
@@ -278,8 +334,6 @@ def main():
     active_theaters = {name for name, _ in scrapers}
     events: list[dict] = []
 
-    # Preserve unrelated cities and preserve the last known data for a Hangzhou
-    # venue whose scraper failed during this run.
     for event in previous_events:
         theater = event.get("theater")
         if theater not in active_theaters:
@@ -293,8 +347,6 @@ def main():
     events = dedupe(events)
     events.sort(key=lambda e: (e["date"], e["city"], e["theater"], e["title"]))
 
-    # If both sources fail and there is no retained data, fail the workflow instead
-    # of committing an empty calendar.
     if not events:
         raise RuntimeError("No valid concert data available; keeping the previous file.")
 
