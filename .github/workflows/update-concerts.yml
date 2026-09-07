@@ -2,6 +2,11 @@ name: Update concert calendar
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update-concerts.yml"
 
 permissions:
   contents: write
