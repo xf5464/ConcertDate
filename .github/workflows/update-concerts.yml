@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/update-concerts.yml"
       - "scripts/scrape.py"
+      - "scripts/upgrade_official_sources.py"
 
 permissions:
   contents: write
@@ -42,6 +43,9 @@ jobs:
 
       - name: Fix performance date inference
         run: python scripts/fix_performance_dates.py
+
+      - name: Enable official source priority
+        run: python scripts/upgrade_official_sources.py
 
       - name: Scrape concert data
         run: python scripts/scrape.py
