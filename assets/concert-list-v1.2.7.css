@@ -1,0 +1,62 @@
+.concert-list-button {
+  position: fixed !important;
+  right: max(14px, env(safe-area-inset-right)) !important;
+  bottom: max(76px, calc(env(safe-area-inset-bottom) + 68px)) !important;
+  z-index: 902 !important;
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  padding: 0;
+  border: 1px solid rgba(17, 24, 39, 0.16);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  color: #111827;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0.78;
+  transition: opacity 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.concert-list-button:active {
+  transform: scale(0.94);
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.concert-list-icon {
+  width: 24px;
+  height: 18px;
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  grid-template-rows: repeat(3, 4px);
+  column-gap: 5px;
+  row-gap: 3px;
+  align-items: center;
+}
+
+.concert-list-icon-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.concert-list-icon-line {
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+@media (min-width: 521px) {
+  .concert-list-button {
+    right: max(18px, env(safe-area-inset-right)) !important;
+    bottom: max(84px, calc(env(safe-area-inset-bottom) + 76px)) !important;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+  }
+}
