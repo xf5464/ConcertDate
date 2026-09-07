@@ -1,0 +1,50 @@
+.year-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.year-theater-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 12px;
+  width: 100%;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.year-theater-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.year-theater-legend-dot {
+  --theater-color: #22c55e;
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+  background: var(--theater-color);
+}
+
+@media (max-width: 520px) {
+  .year-heading {
+    gap: 7px;
+  }
+
+  .year-theater-legend {
+    gap: 6px 10px;
+    font-size: 11px;
+  }
+
+  .year-theater-legend-dot {
+    width: 8px;
+    height: 8px;
+    flex-basis: 8px;
+  }
+}
