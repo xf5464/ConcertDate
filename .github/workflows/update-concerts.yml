@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/update-concerts.yml"
       - "scripts/scrape.py"
+      - "scripts/fix_performance_dates.py"
       - "scripts/upgrade_official_sources.py"
       - "scripts/fix_zjso_official_dates.py"
 
