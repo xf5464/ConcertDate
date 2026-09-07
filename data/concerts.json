@@ -1,6 +1,6 @@
 {
   "version": "7c1ded66a91a",
-  "updatedAt": "2026-09-07T14:26:50+00:00",
+  "updatedAt": "2026-09-07T14:31:56+00:00",
   "cities": [
     {
       "name": "杭州",
@@ -307,8 +307,9 @@
     },
     {
       "source": "杭州运河大剧院",
-      "ok": true,
-      "count": 5
+      "ok": false,
+      "count": 0,
+      "error": "official sources returned zero concert events"
     },
     {
       "source": "临平大剧院",
