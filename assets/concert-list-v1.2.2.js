@@ -69,13 +69,11 @@
     } else {
       list.innerHTML = items.map(item => {
         const color = typeof colorForTheater === 'function' ? colorForTheater(item.theater) : '#22c55e';
-        const intro = item.description || item.intro || item.title || '暂无介绍';
         return `
           <article class="concert-list-item">
             <div class="concert-list-meta">${formatDateMeta(item.date)}</div>
             <div class="concert-list-theater"><span class="concert-list-dot" style="--concert-list-dot:${color}"></span>${escapeHtml(item.theater || '')}</div>
             <h4>${escapeHtml(item.title || '未命名音乐会')}</h4>
-            <p>${escapeHtml(intro)}</p>
             ${item.source ? `<a href="${escapeHtml(item.source)}" target="_blank" rel="noopener noreferrer">查看来源</a>` : ''}
           </article>`;
       }).join('');
