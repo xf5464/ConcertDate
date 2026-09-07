@@ -10,15 +10,29 @@
 }
 
 .concert-list-button {
-  min-height: 40px;
-  padding: 0 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  background: #fff;
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(82px, calc(env(safe-area-inset-bottom) + 74px));
+  z-index: 901;
+  min-width: 50px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgba(17, 24, 39, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
   color: #111827;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+  opacity: 0.88;
+}
+
+.concert-list-button:active {
+  transform: scale(0.96);
+  opacity: 1;
 }
 
 .concert-list-overlay[hidden] {
@@ -156,13 +170,12 @@ body.concert-list-open {
 }
 
 @media (max-width: 520px) {
-  .topbar > div {
-    align-items: center;
-  }
-
   .concert-list-button {
-    min-height: 38px;
-    padding: 0 12px;
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(74px, calc(env(safe-area-inset-bottom) + 66px));
+    min-width: 46px;
+    height: 36px;
+    padding: 0 10px;
     font-size: 13px;
   }
 
