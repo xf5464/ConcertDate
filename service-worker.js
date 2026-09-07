@@ -1,4 +1,4 @@
-const CACHE = 'concertdate-pwa-20260907-green-markers';
+const CACHE = 'concertdate-pwa-20260907-green-only';
 const STATIC_FILES = [
   './',
   './index.html',
@@ -6,7 +6,7 @@ const STATIC_FILES = [
   './assets/app-a14c9f11.js',
   './assets/styles-91563071.css',
   './assets/calendar-interactions-1fce7c87.js',
-  './assets/calendar-interactions-63645c9d.css',
+  './assets/calendar-interactions-f3a7c2d1.css',
   './assets/apple-touch-icon-ba816ddb.png',
   './assets/icon-192-ba816ddb.png'
 ];
