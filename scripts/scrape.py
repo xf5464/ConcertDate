@@ -78,15 +78,17 @@ def valid_future_or_recent(date_str: str) -> bool:
 
 
 def infer_year(text: str, month: int, day_num: int) -> int:
-    """Infer a missing year conservatively from the displayed weekday.
+    """Infer a missing year without inventing a future performance.
 
-    LocalHub often renders dates as e.g. `3/21 周六` without a year.  The old
-    month-only heuristic incorrectly turned past 2026 performances into 2027
-    performances.  Prefer the calendar year whose weekday matches the source;
-    without a weekday, keep the current year so stale past listings are filtered
-    out instead of being invented as future events.
+    If the card/title explicitly contains the current year, trust that before
+    weekday inference. This prevents titles such as `2026杭州… 4/18` from being
+    shifted into 2027 merely because a nearby weekday string happens to match.
     """
     today = date.today()
+
+    if str(today.year) in text:
+        return today.year
+
     weekday_match = re.search(r"周([一二三四五六日天])", text)
     weekday_map = {"一": 0, "二": 1, "三": 2, "四": 3, "五": 4, "六": 5, "日": 6, "天": 6}
 

@@ -1,6 +1,6 @@
 {
-  "version": "22e0474c0cb4",
-  "updatedAt": "2026-09-07T14:33:16+00:00",
+  "version": "6ba38b3ffd8d",
+  "updatedAt": "2026-09-07T14:41:29+00:00",
   "cities": [
     {
       "name": "杭州",
@@ -287,20 +287,13 @@
       "theater": "杭州金沙湖大剧院",
       "title": "Chaos Mercury草西水星女团 以阿卡贝拉重新演绎 火星哥格莱美金曲 《That's What I like》 12月28日，来金沙湖大剧院 现场感受人声的魅力 #金沙湖大剧院##杭州金沙湖大剧院##阿卡贝拉##草西水星女团##chaosmercury##阿卡贝拉音乐会# http://t.cn/AXLMfbjO ​",
       "source": "https://www.sina.cn/media/7749068680"
-    },
-    {
-      "date": "2027-04-18",
-      "city": "杭州",
-      "theater": "杭州大剧院",
-      "title": "2026杭州“春之声”音乐汇 杭州爱乐乐团2025-2026音乐季 【对话】周天|瓦格纳：声贯东西",
-      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
     }
   ],
   "sources": [
     {
       "source": "杭州大剧院",
       "ok": true,
-      "count": 13
+      "count": 12
     },
     {
       "source": "杭州剧院",
