@@ -10,6 +10,8 @@ on:
       - "scripts/upgrade_official_sources.py"
       - "scripts/fix_zjso_official_dates.py"
       - "scripts/add_performance_metadata.py"
+      - "scripts/build_pwa_icon_v3.py"
+      - "assets/apple-touch-icon-piratecat-v3.b64"
 
 permissions:
   contents: write
@@ -41,6 +43,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Build corrected PWA icon
+        run: |
+          if [ -f assets/apple-touch-icon-piratecat-v3.b64 ]; then
+            python scripts/build_pwa_icon_v3.py
+          else
+            echo "PWA icon already built."
+          fi
+
       - name: Update Hangzhou Theatre source
         run: python scripts/fix_hangzhou_source.py
 
@@ -62,13 +72,13 @@ jobs:
       - name: Version concert data
         run: python scripts/version_data.py
 
-      - name: Commit updated concert data
+      - name: Commit generated files
         run: |
-          if ! git diff --quiet -- data/concerts.json data/version.json scripts/scrape.py; then
+          if ! git diff --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/concerts.json data/version.json scripts/scrape.py
-            git commit -m "chore: update concert data"
+            git add -A
+            git commit -m "chore: build corrected PWA icon and update concert data"
             git push
           else
             echo "No repository changes."
