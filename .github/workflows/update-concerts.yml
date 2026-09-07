@@ -1,0 +1,47 @@
+name: Update concert calendar
+
+on:
+  schedule:
+    # GitHub Actions cron uses UTC. 00:30 UTC = 08:30 China Standard Time.
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-concerts
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Scrape concert data
+        run: python scripts/scrape.py
+
+      - name: Commit updated data
+        run: |
+          if git diff --quiet -- data/concerts.json; then
+            echo "No concert data changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/concerts.json
+          git commit -m "chore: update concert data"
+          git push
