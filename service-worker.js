@@ -1,4 +1,4 @@
-const CACHE = 'concertdate-pwa-app-v1.2.4';
+const CACHE = 'concertdate-pwa-app-v1.2.5';
 const STATIC_FILES = [
   './manifest.webmanifest',
   './assets/data-version-loader-9b3e6f21.js',
