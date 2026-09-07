@@ -1,10 +1,10 @@
-const CACHE = 'concertdate-pwa-app-v1.1.0';
+const CACHE = 'concertdate-pwa-app-v1.1.1';
 const STATIC_FILES = [
   './',
   './index.html',
   './manifest.webmanifest',
   './assets/data-version-loader-9b3e6f21.js',
-  './assets/app-3d9c71a2.js',
+  './assets/app-8b4e3c72.js',
   './assets/styles-91563071.css',
   './assets/calendar-interactions-8c2fd1b4.js',
   './assets/calendar-interactions-f3a7c2d1.css',
