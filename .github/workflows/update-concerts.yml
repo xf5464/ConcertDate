@@ -7,6 +7,7 @@ on:
       - ".github/workflows/update-concerts.yml"
       - "scripts/scrape.py"
       - "scripts/upgrade_official_sources.py"
+      - "scripts/fix_zjso_official_dates.py"
 
 permissions:
   contents: write
@@ -46,6 +47,9 @@ jobs:
 
       - name: Enable official source priority
         run: python scripts/upgrade_official_sources.py
+
+      - name: Fix ZJSO official date parser
+        run: python scripts/fix_zjso_official_dates.py
 
       - name: Scrape concert data
         run: python scripts/scrape.py
