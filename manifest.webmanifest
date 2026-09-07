@@ -9,10 +9,10 @@
   "theme_color": "#111827",
   "icons": [
     {
-      "src": "./assets/icon-192-ba816ddb.png",
-      "sizes": "192x192",
+      "src": "./assets/icon-180-piratecat-v1.png",
+      "sizes": "180x180",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
