@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - ".github/workflows/update-concerts.yml"
+      - "scripts/scrape.py"
 
 permissions:
   contents: write
