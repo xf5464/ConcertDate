@@ -40,6 +40,9 @@ jobs:
       - name: Update Hangzhou Theatre source
         run: python scripts/fix_hangzhou_source.py
 
+      - name: Fix performance date inference
+        run: python scripts/fix_performance_dates.py
+
       - name: Scrape concert data
         run: python scripts/scrape.py
 
