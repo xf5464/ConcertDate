@@ -1,4 +1,4 @@
-const CACHE = 'concertdate-pwa-app-v1.3.0';
+const CACHE = 'concertdate-pwa-app-v1.3.1';
 const STATIC_FILES = [
   './manifest.webmanifest',
   './assets/data-version-loader-9b3e6f21.js',
@@ -16,8 +16,8 @@ const STATIC_FILES = [
   './assets/concert-list-v1.2.4.js',
   './assets/quick-top-b13e7a44.css',
   './assets/quick-top-91d4b2a6.js',
-  './assets/apple-touch-icon-piratecat-v1.png',
-  './assets/icon-180-piratecat-v1.png'
+  './assets/apple-touch-icon-piratecat-v2.png',
+  './assets/icon-180-piratecat-v2.png'
 ];
 
 self.addEventListener('install', event => {
