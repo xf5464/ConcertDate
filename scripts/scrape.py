@@ -76,10 +76,29 @@ def valid_future_or_recent(date_str: str) -> bool:
     return d >= date.today().replace(day=1)
 
 
-def infer_year(month: int) -> int:
+def infer_year(text: str, month: int, day_num: int) -> int:
+    """Infer a missing year conservatively from the displayed weekday.
+
+    LocalHub often renders dates as e.g. `3/21 周六` without a year.  The old
+    month-only heuristic incorrectly turned past 2026 performances into 2027
+    performances.  Prefer the calendar year whose weekday matches the source;
+    without a weekday, keep the current year so stale past listings are filtered
+    out instead of being invented as future events.
+    """
     today = date.today()
-    if month < today.month - 4:
-        return today.year + 1
+    weekday_match = re.search(r"周([一二三四五六日天])", text)
+    weekday_map = {"一": 0, "二": 1, "三": 2, "四": 3, "五": 4, "六": 5, "日": 6, "天": 6}
+
+    if weekday_match:
+        expected = weekday_map[weekday_match.group(1)]
+        for year in (today.year, today.year + 1, today.year - 1):
+            try:
+                candidate = date(year, month, day_num)
+            except ValueError:
+                continue
+            if candidate.weekday() == expected:
+                return year
+
     return today.year
 
 
@@ -119,7 +138,7 @@ def parse_date_strings(text: str) -> list[str]:
     if match:
         month, day_num = int(match.group(1)), int(match.group(2))
         try:
-            return [date(infer_year(month), month, day_num).isoformat()]
+            return [date(infer_year(text, month, day_num), month, day_num).isoformat()]
         except ValueError:
             return []
 
