@@ -1,9 +1,6 @@
 name: Update concert calendar
 
 on:
-  schedule:
-    # GitHub Actions cron uses UTC. 00:30 UTC = 08:30 China Standard Time.
-    - cron: "30 0 * * *"
   workflow_dispatch:
 
 permissions:
