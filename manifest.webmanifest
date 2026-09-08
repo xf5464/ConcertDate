@@ -9,13 +9,13 @@
   "theme_color": "#111827",
   "icons": [
     {
-      "src": "./assets/icon-192-piratecat-v5.png",
+      "src": "./assets/icon-192-e0897a4b.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./assets/icon-512-piratecat-v5.png",
+      "src": "./assets/icon-512-cb7630d5.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
