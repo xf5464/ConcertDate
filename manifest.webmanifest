@@ -9,10 +9,16 @@
   "theme_color": "#111827",
   "icons": [
     {
-      "src": "./assets/icon-180-piratecat-v2.png",
-      "sizes": "180x180",
+      "src": "./assets/icon-192-piratecat-v5.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512-piratecat-v5.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
