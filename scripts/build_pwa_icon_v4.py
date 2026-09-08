@@ -1,5 +1,6 @@
 from pathlib import Path
 import base64
+import re
 from io import BytesIO
 from PIL import Image
 
@@ -18,8 +19,11 @@ for size, name in [
     (192, "icon-192-piratecat-v4.png"),
     (512, "icon-512-piratecat-v4.png"),
 ]:
-    out = img.resize((size, size), Image.Resampling.LANCZOS)
-    out.save(ASSETS / name, format="PNG", optimize=True)
+    img.resize((size, size), Image.Resampling.LANCZOS).save(
+        ASSETS / name,
+        format="PNG",
+        optimize=True,
+    )
 
 index = INDEX.read_text(encoding="utf-8")
 index = index.replace("apple-touch-icon-piratecat-v2.png", "apple-touch-icon-piratecat-v4.png")
@@ -28,23 +32,58 @@ index = index.replace('sizes="180x180" href="./assets/icon-192-piratecat-v4.png"
 index = index.replace("App v1.3.1", "App v1.3.2")
 INDEX.write_text(index, encoding="utf-8")
 
-MANIFEST.write_text('''{\n  "name": "ConcertDate 音乐会日历",\n  "short_name": "ConcertDate",\n  "description": "按城市、剧院、月份和星期筛选音乐会日期",\n  "start_url": "./",\n  "scope": "./",\n  "display": "standalone",\n  "background_color": "#f5f7fb",\n  "theme_color": "#111827",\n  "icons": [\n    {\n      "src": "./assets/icon-192-piratecat-v4.png",\n      "sizes": "192x192",\n      "type": "image/png",\n      "purpose": "any"\n    },\n    {\n      "src": "./assets/icon-512-piratecat-v4.png",\n      "sizes": "512x512",\n      "type": "image/png",\n      "purpose": "any maskable"\n    }\n  ]\n}\n''', encoding="utf-8")
+MANIFEST.write_text(
+    '''{
+  "name": "ConcertDate 音乐会日历",
+  "short_name": "ConcertDate",
+  "description": "按城市、剧院、月份和星期筛选音乐会日期",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "./assets/icon-192-piratecat-v4.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512-piratecat-v4.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+''',
+    encoding="utf-8",
+)
 
 sw = SW.read_text(encoding="utf-8")
-import re
-sw = re.sub(r"const CACHE = 'concertdate-pwa-app-v[^']+';", "const CACHE = 'concertdate-pwa-app-v1.3.2';", sw)
-for old in [
-    "./assets/apple-touch-icon-piratecat-v1.png",
-    "./assets/apple-touch-icon-piratecat-v2.png",
-    "./assets/icon-180-piratecat-v1.png",
-    "./assets/icon-180-piratecat-v2.png",
-]:
-    sw = sw.replace(f"  '{old}',\n", "")
-insert = "  './assets/apple-touch-icon-piratecat-v4.png',\n  './assets/icon-192-piratecat-v4.png',\n  './assets/icon-512-piratecat-v4.png',\n"
-needle = "];
-"
+sw = re.sub(
+    r"const CACHE = 'concertdate-pwa-app-v[^']+';",
+    "const CACHE = 'concertdate-pwa-app-v1.3.2';",
+    sw,
+)
+
+old_icon_lines = [
+    "  './assets/apple-touch-icon-piratecat-v1.png',\n",
+    "  './assets/apple-touch-icon-piratecat-v2.png',\n",
+    "  './assets/icon-180-piratecat-v1.png',\n",
+    "  './assets/icon-180-piratecat-v2.png',\n",
+]
+for old in old_icon_lines:
+    sw = sw.replace(old, "")
+
+new_icon_lines = (
+    "  './assets/apple-touch-icon-piratecat-v4.png',\n"
+    "  './assets/icon-192-piratecat-v4.png',\n"
+    "  './assets/icon-512-piratecat-v4.png',\n"
+)
 if "apple-touch-icon-piratecat-v4.png" not in sw:
-    sw = sw.replace(needle, insert + needle, 1)
+    sw = sw.replace("];\n", new_icon_lines + "];\n", 1)
 SW.write_text(sw, encoding="utf-8")
 
 SRC.unlink()
