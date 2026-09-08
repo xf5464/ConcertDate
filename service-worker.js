@@ -1,4 +1,4 @@
-const CACHE = 'concertdate-pwa-app-v1.3.4-icon-4ea6f82b';
+const CACHE = 'concertdate-pwa-app-v1.3.5-list-toggle';
 const STATIC_FILES = [
   './manifest.webmanifest',
   './assets/data-version-loader-9b3e6f21.js',
@@ -11,9 +11,9 @@ const STATIC_FILES = [
   './assets/theater-legend-v1.2.1.css',
   './assets/theater-legend-v1.2.1.js',
   './assets/concert-list-v1.2.2.css',
-  './assets/concert-list-v1.2.7.css',
+  './assets/concert-list-5bb513ac.css',
   './assets/filter-heights-v1.2.8.css',
-  './assets/concert-list-v1.2.4.js',
+  './assets/concert-list-2bf13d8d.js',
   './assets/quick-top-b13e7a44.css',
   './assets/quick-top-91d4b2a6.js',
   './assets/apple-touch-icon-961042b2.png',
