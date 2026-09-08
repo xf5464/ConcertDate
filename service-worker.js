@@ -1,4 +1,4 @@
-const CACHE = 'concertdate-pwa-app-v1.3.3-icon-e0897a4b';
+const CACHE = 'concertdate-pwa-app-v1.3.4-icon-4ea6f82b';
 const STATIC_FILES = [
   './manifest.webmanifest',
   './assets/data-version-loader-9b3e6f21.js',
@@ -16,9 +16,9 @@ const STATIC_FILES = [
   './assets/concert-list-v1.2.4.js',
   './assets/quick-top-b13e7a44.css',
   './assets/quick-top-91d4b2a6.js',
-  './assets/apple-touch-icon-88015956.png',
-  './assets/icon-192-e0897a4b.png',
-  './assets/icon-512-cb7630d5.png'
+  './assets/apple-touch-icon-961042b2.png',
+  './assets/icon-192-4ea6f82b.png',
+  './assets/icon-512-b35e7556.png'
 ];
 
 self.addEventListener('install', event => {

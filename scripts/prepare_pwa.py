@@ -8,7 +8,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
-ICON_SOURCE = ROOT / "assets-src" / "pwa-source-ba816ddb.png"
+ICON_SOURCE = ROOT / "assets-src" / "pwa-source-b35e7556.png"
 
 
 def short_hash_bytes(data: bytes) -> str:
