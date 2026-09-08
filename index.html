@@ -22,13 +22,14 @@
   <link rel="stylesheet" href="./assets/concert-list-5bb513ac.css" />
   <link rel="stylesheet" href="./assets/filter-heights-v1.2.8.css" />
   <link rel="stylesheet" href="./assets/quick-top-b13e7a44.css" />
+  <link rel="stylesheet" href="./assets/current-month-button-f49ace7f.css" />
 </head>
 <body>
   <header class="topbar">
     <div>
       <div class="topbar-copy">
         <h1>ConcertDate</h1>
-        <p>查看不同城市与剧院的音乐会日期 · App v1.3.5</p>
+        <p>查看不同城市与剧院的音乐会日期 · App v1.3.6</p>
       </div>
     </div>
   </header>
@@ -49,7 +50,12 @@
     <section class="calendar-panel">
       <div class="calendar-toolbar">
         <div><strong id="summaryTitle">音乐会日历</strong><span id="summaryText"></span></div>
-        <button id="todayButton" type="button">回到当前月</button>
+        <button id="todayButton" type="button" aria-label="回到当前月" title="回到当前月">
+          <svg class="current-month-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 3v3M17 3v3M4.5 8.5h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="14" r="2.4" fill="currentColor"/>
+          </svg>
+        </button>
       </div>
       <div id="calendarScroller" class="calendar-scroller" tabindex="0" aria-label="连续月份日历"></div>
       <div id="emptyState" class="empty-state" hidden>当前筛选条件下没有音乐会。</div>

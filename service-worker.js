@@ -1,4 +1,4 @@
-const CACHE = 'concertdate-pwa-app-v1.3.5-list-toggle';
+const CACHE = 'concertdate-pwa-app-v1.3.6-current-month-button';
 const STATIC_FILES = [
   './manifest.webmanifest',
   './assets/data-version-loader-9b3e6f21.js',
@@ -15,6 +15,7 @@ const STATIC_FILES = [
   './assets/filter-heights-v1.2.8.css',
   './assets/concert-list-2bf13d8d.js',
   './assets/quick-top-b13e7a44.css',
+  './assets/current-month-button-f49ace7f.css',
   './assets/quick-top-91d4b2a6.js',
   './assets/apple-touch-icon-961042b2.png',
   './assets/icon-192-4ea6f82b.png',
