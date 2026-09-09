@@ -1,5 +1,6 @@
 import json
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Iterable
@@ -14,6 +15,31 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; ConcertDateBot/1.0; +https://github.com/xf5464/ConcertDate)"
 }
 TIMEOUT = 25
+
+HANGZHOU_GRAND_THEATER_LOCALHUB = (
+    "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh"
+)
+DOUBAN_HANGZHOU_MUSIC = "https://www.douban.com/location/hangzhou/events/future-music"
+
+# Recently announced performances can take time to reach LocalHub. Keep a
+# small verified safety net while the supplemental indexes catch up. Expired
+# entries disappear automatically through valid_future_or_recent().
+VERIFIED_HANGZHOU_GRAND_THEATER_SUPPLEMENTS = (
+    {
+        "date": "2026-11-20",
+        "title": "杭州大剧院管风琴系列VOL.64知识音乐会《音乐与情绪社会——众声回响》",
+        "source": "https://www.douban.com/event/38042102/",
+        "startTime": "19:30",
+    },
+    {
+        "date": "2026-11-27",
+        "title": "1+1≥2 钢琴的传奇之旅——迈克·彼亚克独奏音乐会",
+        "source": "https://www.douban.com/event/38026360/",
+        "startTime": "19:30",
+        "durationMinutes": 120,
+        "durationText": "约120分钟",
+    },
+)
 
 VENUES = [
     {"city": "杭州", "theater": "杭州大剧院"},
@@ -196,6 +222,87 @@ def dedupe(events: Iterable[dict]) -> list[dict]:
     return result
 
 
+def parse_douban_music_page(theater: str, url: str, html: str) -> list[dict]:
+    """Parse one Douban city-music page and retain only this venue's events."""
+    soup = BeautifulSoup(html, "html.parser")
+    events: list[dict] = []
+    visited_links: set[str] = set()
+
+    for link in soup.find_all("a", href=True):
+        href = str(link.get("href") or "")
+        if not re.search(r"(?:douban\.com)?/event/\d+/?", href):
+            continue
+        source = urljoin(url, href)
+        if source in visited_links:
+            continue
+        visited_links.add(source)
+
+        title = normalize_title(link.get_text(" ", strip=True))
+        context = link
+        raw = ""
+        dates: list[str] = []
+        for _ in range(7):
+            context = context.parent
+            if context is None:
+                break
+            candidate = normalize_title(context.get_text(" ", strip=True))
+            candidate_dates = parse_date_strings(candidate)
+            if candidate_dates and theater in candidate:
+                raw = candidate
+                dates = candidate_dates
+                break
+
+        if not raw or not dates:
+            continue
+        if not title or not is_concert(title):
+            for node in context.find_all(["h1", "h2", "h3", "h4", "strong"]):
+                candidate = normalize_title(node.get_text(" ", strip=True))
+                if is_concert(candidate):
+                    title = candidate
+                    break
+        if not title or not is_concert(title):
+            continue
+
+        for date_str in dates:
+            if valid_future_or_recent(date_str):
+                events.append(
+                    make_event(
+                        date_str,
+                        "杭州",
+                        theater,
+                        title,
+                        source,
+                        raw_text=raw,
+                    )
+                )
+
+    return dedupe(events)
+
+
+def scrape_douban_music(theater: str) -> list[dict]:
+    """Merge all currently published pages of Douban's Hangzhou music list."""
+    urls = [DOUBAN_HANGZHOU_MUSIC]
+    urls.extend(f"{DOUBAN_HANGZHOU_MUSIC}?start={start}" for start in range(10, 100, 10))
+    pages: dict[str, str] = {}
+
+    # Ten pages are fetched concurrently so a slow page cannot add minutes to
+    # the scheduled update. Individual failures are allowed; LocalHub remains
+    # the primary source.
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        futures = {executor.submit(fetch, url): url for url in urls}
+        for future in as_completed(futures):
+            url = futures[future]
+            try:
+                pages[url] = future.result()
+            except Exception as exc:
+                print(f"[warn] Douban music page {url}: {exc}")
+
+    events: list[dict] = []
+    for url, html in pages.items():
+        events.extend(parse_douban_music_page(theater, url, html))
+    return dedupe(events)
+
+
 def scrape_localhub_venue(theater: str, url: str, aliases: tuple[str, ...] = ()) -> list[dict]:
     soup = BeautifulSoup(fetch(url), "html.parser")
     events: list[dict] = []
@@ -244,10 +351,42 @@ def scrape_localhub_venue(theater: str, url: str, aliases: tuple[str, ...] = ())
 
 
 def scrape_hangzhou_grand_theater() -> list[dict]:
-    return scrape_localhub_venue(
-        "杭州大剧院",
-        "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
-    )
+    events: list[dict] = []
+
+    try:
+        events.extend(
+            scrape_localhub_venue(
+                "杭州大剧院",
+                HANGZHOU_GRAND_THEATER_LOCALHUB,
+            )
+        )
+    except Exception as exc:
+        print(f"[warn] LocalHub source for 杭州大剧院: {exc}")
+
+    try:
+        supplemental = scrape_douban_music("杭州大剧院")
+        events.extend(supplemental)
+        print(f"[info] 杭州大剧院 Douban supplemental: {len(supplemental)} events")
+    except Exception as exc:
+        print(f"[warn] Douban supplemental source: {exc}")
+
+    for item in VERIFIED_HANGZHOU_GRAND_THEATER_SUPPLEMENTS:
+        if not valid_future_or_recent(item["date"]):
+            continue
+        event = make_event(
+            item["date"],
+            "杭州",
+            "杭州大剧院",
+            item["title"],
+            item["source"],
+            start_time=item.get("startTime"),
+        )
+        for key in ("durationMinutes", "durationText"):
+            if key in item:
+                event[key] = item[key]
+        events.append(event)
+
+    return dedupe(events)
 
 
 def scrape_hangzhou_theater() -> list[dict]:

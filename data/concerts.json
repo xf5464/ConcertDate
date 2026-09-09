@@ -1,6 +1,6 @@
 {
-  "version": "cd5e53b36048",
-  "updatedAt": "2026-09-08T00:40:41+00:00",
+  "version": "a3cf8e74a8e0",
+  "updatedAt": "2026-09-09T17:08:07+03:00",
   "cities": [
     {
       "name": "杭州",
@@ -88,6 +88,14 @@
       "theater": "浙江音乐厅",
       "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
       "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
+    },
+    {
+      "date": "2026-10-09",
+      "city": "杭州",
+      "theater": "杭州大剧院",
+      "title": "杭州大剧院管风琴系列VOL.63 于尔根·坤萨瓦管风琴独奏音乐会",
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-grand-theater?lang=zh",
+      "startTime": "19:30"
     },
     {
       "date": "2026-10-10",
@@ -211,6 +219,14 @@
     {
       "date": "2026-11-20",
       "city": "杭州",
+      "theater": "杭州大剧院",
+      "title": "杭州大剧院管风琴系列VOL.64知识音乐会《音乐与情绪社会——众声回响》",
+      "source": "https://www.douban.com/event/38042102/",
+      "startTime": "19:30"
+    },
+    {
+      "date": "2026-11-20",
+      "city": "杭州",
       "theater": "杭州运河大剧院",
       "title": "浙江交响乐团2026年音乐季 (总第215期)永恒的经典",
       "source": "https://www.zjso.org/event/%e6%b5%99%e6%b1%9f%e4%ba%a4%e5%93%8d%e4%b9%90%e5%9b%a22026%e5%b9%b4%e9%9f%b3%e4%b9%90%e5%ad%a3-%e6%80%bb%e7%ac%ac215%e6%9c%9f%e6%b0%b8%e6%81%92%e7%9a%84%e7%bb%8f%e5%85%b8/"
@@ -227,6 +243,16 @@
       "city": "上海",
       "theater": "上海东方艺术中心",
       "title": "室内乐音乐会"
+    },
+    {
+      "date": "2026-11-27",
+      "city": "杭州",
+      "theater": "杭州大剧院",
+      "title": "1+1≥2 钢琴的传奇之旅——迈克·彼亚克独奏音乐会",
+      "source": "https://www.douban.com/event/38026360/",
+      "startTime": "19:30",
+      "durationMinutes": 120,
+      "durationText": "约120分钟"
     },
     {
       "date": "2026-11-28",
@@ -302,18 +328,26 @@
       "theater": "杭州金沙湖大剧院",
       "title": "Chaos Mercury草西水星女团 以阿卡贝拉重新演绎 火星哥格莱美金曲 《That's What I like》 12月28日，来金沙湖大剧院 现场感受人声的魅力 #金沙湖大剧院##杭州金沙湖大剧院##阿卡贝拉##草西水星女团##chaosmercury##阿卡贝拉音乐会# http://t.cn/AXLMfbjO ​",
       "source": "https://www.sina.cn/media/7749068680"
+    },
+    {
+      "date": "2027-01-15",
+      "city": "杭州",
+      "theater": "杭州剧院",
+      "title": "维也纳皇家交响乐团2027新年音乐会",
+      "source": "https://localhub.to/hangzhou/venue/hangzhou-theater?lang=zh",
+      "startTime": "19:30"
     }
   ],
   "sources": [
     {
       "source": "杭州大剧院",
       "ok": true,
-      "count": 12
+      "count": 15
     },
     {
       "source": "杭州剧院",
       "ok": true,
-      "count": 0
+      "count": 1
     },
     {
       "source": "浙江音乐厅",
